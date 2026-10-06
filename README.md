@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Amiga Beauty — Blog
 
-## Getting Started
+Blog em Next.js (App Router) + TypeScript + Tailwind CSS, com posts em Markdown.
+Layout inspirado em [manualdohomemmoderno.com.br](https://manualdohomemmoderno.com.br/):
+destaque + lista no topo, barra de redes sociais, e seções por categoria com
+card grande + grid.
 
-First, run the development server:
+## Rodando localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `content/posts/*.md` — cada post é um arquivo Markdown com frontmatter
+  (`title`, `excerpt`, `category`, `author`, `date`, `coverImage`, `featured`).
+  Para publicar um post novo, basta criar um `.md` aqui.
+- `src/lib/categories.ts` — lista de categorias do menu (nome, slug, cor do
+  badge). **Troque pelos nomes definitivos quando decidir a linha editorial.**
+- `src/components/` — Header, Footer, cards, seção de categoria, hero de
+  destaque, barra de redes sociais.
+- `src/app/page.tsx` — home.
+- `src/app/categoria/[slug]/page.tsx` — página de listagem por categoria.
+- `src/app/blog/[slug]/page.tsx` — página do post.
 
-## Learn More
+## Paleta de cores
 
-To learn more about Next.js, take a look at the following resources:
+Definida em `src/app/globals.css` (`--primary` rosa, `--gold` dourado,
+`--nude`/`--nude-soft` para fundos). Cada categoria tem sua própria cor de
+badge em `src/lib/categories.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pendências / próximos passos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Trocar as imagens de capa (atualmente placeholders do Unsplash) por fotos
+  próprias.
+- Definir a lista final de categorias.
+- Conectar a loja de achadinhos (hoje em `ofertas.amigabeauty.com.br/teste`,
+  rodando na plataforma AfiliadosPro) com domínio definitivo.
+- Configurar deploy no VPS (build com `npm run build` + `npm run start`, ou
+  exportar como site estático se preferir servir via Nginx puro).
