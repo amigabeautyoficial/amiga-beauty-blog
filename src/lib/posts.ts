@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { getChildCategories } from "./categories";
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
@@ -40,8 +41,15 @@ export function getAllPosts(): PostMeta[] {
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
+/**
+ * Posts de uma categoria. Quando `categorySlug` é uma categoria "pai"
+ * (ex: "beleza"), também inclui os posts de todas as suas subcategorias
+ * (ex: "maquiagem", "skincare", "cabelo").
+ */
 export function getPostsByCategory(categorySlug: string): PostMeta[] {
-  return getAllPosts().filter((p) => p.category === categorySlug);
+  const childSlugs = getChildCategories(categorySlug).map((c) => c.slug);
+  const slugs = [categorySlug, ...childSlugs];
+  return getAllPosts().filter((p) => slugs.includes(p.category));
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {

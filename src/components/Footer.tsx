@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { categories } from "@/lib/categories";
+import { getTopLevelCategories } from "@/lib/categories";
 
 export default function Footer() {
   return (
@@ -25,7 +25,7 @@ export default function Footer() {
             Categorias
           </h4>
           <ul className="space-y-2">
-            {categories.map((cat) => (
+            {getTopLevelCategories().map((cat) => (
               <li key={cat.slug}>
                 <Link
                   href={`/categoria/${cat.slug}`}

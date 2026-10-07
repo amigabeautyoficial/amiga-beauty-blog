@@ -2,7 +2,7 @@ import FeaturedHero from "@/components/FeaturedHero";
 import SocialBar from "@/components/SocialBar";
 import CategorySection from "@/components/CategorySection";
 import { getAllPosts, getPostsByCategory } from "@/lib/posts";
-import { categories } from "@/lib/categories";
+import { getTopLevelCategories } from "@/lib/categories";
 
 export default function Home() {
   const allPosts = getAllPosts();
@@ -14,7 +14,7 @@ export default function Home() {
     <div>
       <FeaturedHero posts={featured} />
       <SocialBar />
-      {categories.map((cat) => (
+      {getTopLevelCategories().map((cat) => (
         <CategorySection
           key={cat.slug}
           categorySlug={cat.slug}
