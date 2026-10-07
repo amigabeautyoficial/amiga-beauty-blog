@@ -17,9 +17,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Amiga Beauty | Beleza, Estilo e Achadinhos",
+  title: "Amiga Beauty | Beleza, Comportamento e Estilo de Vida",
   description:
-    "Maquiagem, skincare, cabelo, moda e os melhores achadinhos em um só lugar.",
+    "Beleza, comportamento, relacionamentos, carreira, fé e os melhores achadinhos — a revista para a mulher como um todo.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -15,8 +15,8 @@ export default function Footer() {
             className="h-10 w-auto object-contain"
           />
           <p className="mt-3 text-sm text-foreground/70 max-w-xs">
-            Maquiagem, skincare, cabelo, moda e os melhores achadinhos para
-            você, toda semana.
+            Beleza, comportamento, relacionamentos, carreira, fé e os
+            melhores achadinhos — tudo pensado pra você, toda semana.
           </p>
         </div>
 
@@ -68,6 +68,10 @@ export default function Footer() {
           © {new Date().getFullYear()} Amiga Beauty. Todos os direitos
           reservados.
         </span>
+        <span className="hidden sm:inline">·</span>
+        <Link href="/sobre" className="hover:text-primary">
+          Sobre Nós
+        </Link>
         <span className="hidden sm:inline">·</span>
         <Link href="/politica-de-privacidade" className="hover:text-primary">
           Política de Privacidade
