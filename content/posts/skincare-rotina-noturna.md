@@ -2,7 +2,7 @@
 title: "Rotina noturna de skincare: o passo a passo que sua pele agradece"
 excerpt: "Monte uma rotina simples e eficiente para dormir com a pele limpa, hidratada e pronta para se regenerar."
 category: "skincare"
-author: "Juliana Prado"
+author: "Amiga Beauty"
 date: "2026-09-25"
 coverImage: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&q=80"
 featured: true

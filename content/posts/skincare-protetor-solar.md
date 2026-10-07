@@ -2,7 +2,7 @@
 title: "Protetor solar facial: como escolher o ideal para o seu tipo de pele"
 excerpt: "Texturas, FPS e ingredientes: tudo que você precisa saber antes de comprar o próximo protetor solar."
 category: "skincare"
-author: "Juliana Prado"
+author: "Amiga Beauty"
 date: "2026-09-15"
 coverImage: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1200&q=80"
 featured: false

@@ -2,7 +2,7 @@
 title: "Maquiagem para pele madura: 7 truques que fazem toda diferença"
 excerpt: "Descubra como adaptar a make conforme a pele muda, valorizando textura e luminosidade sem pesar o visual."
 category: "maquiagem"
-author: "Camila Rocha"
+author: "Amiga Beauty"
 date: "2026-09-28"
 coverImage: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80"
 featured: true

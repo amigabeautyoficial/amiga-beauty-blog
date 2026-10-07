@@ -2,7 +2,7 @@
 title: "Tendências de moda para o verão: o que vai bombar nos looks"
 excerpt: "As cores, tecidos e peças-chave que vão dominar o guarda-roupa feminino nesta estação."
 category: "moda"
-author: "Beatriz Nunes"
+author: "Amiga Beauty"
 date: "2026-09-18"
 coverImage: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80"
 featured: false
