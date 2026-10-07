@@ -63,8 +63,19 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div className="border-t border-border-soft py-5 text-center text-xs text-foreground/50">
-        © {new Date().getFullYear()} Amiga Beauty. Todos os direitos reservados.
+      <div className="border-t border-border-soft py-5 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-xs text-foreground/50">
+        <span>
+          © {new Date().getFullYear()} Amiga Beauty. Todos os direitos
+          reservados.
+        </span>
+        <span className="hidden sm:inline">·</span>
+        <Link href="/politica-de-privacidade" className="hover:text-primary">
+          Política de Privacidade
+        </Link>
+        <span className="hidden sm:inline">·</span>
+        <Link href="/termos-de-uso" className="hover:text-primary">
+          Termos de Uso
+        </Link>
       </div>
     </footer>
   );
