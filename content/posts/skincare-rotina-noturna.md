@@ -21,3 +21,5 @@ Comece sempre removendo maquiagem e protetor solar com óleo ou bálsamo, seguid
 ## Hidratação final
 
 Finalize com um hidratante mais encorpado para selar tudo e ajudar na barreira cutânea.
+
+A rotina noturna cuida da regeneração da pele, mas de dia o cuidado essencial é outro: [proteção solar](/blog/skincare-protetor-solar), todos os dias, mesmo sem sol aparente.

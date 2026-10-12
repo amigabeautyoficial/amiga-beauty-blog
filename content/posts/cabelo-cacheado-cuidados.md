@@ -17,3 +17,5 @@ Alternar o shampoo com co-wash ajuda a manter a hidratação sem ressecar os fio
 ## Finalização ainda molhada
 
 Aplique o creme de pentear e o gel com o cabelo ainda bem molhado para potencializar a definição.
+
+Cachos definidos combinam com uma make leve que não rouba a cena — dá uma olhada nos nossos [truques de maquiagem](/blog/maquiagem-para-pele-madura) pra completar o visual.

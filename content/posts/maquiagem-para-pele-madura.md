@@ -14,7 +14,7 @@ Separamos 7 truques que realmente fazem diferença na maquiagem para pele madura
 
 ## 1. Prepare a pele antes de tudo
 
-Hidratação é a base de qualquer make bem-sucedida, principalmente na pele madura, que tende a ser mais seca. Um bom primer hidratante — ou até um sérum antes dele — evita que a maquiagem "entre" nas linhas finas e acentue sinais de ressecamento ao longo do dia.
+Hidratação é a base de qualquer make bem-sucedida, principalmente na pele madura, que tende a ser mais seca. Um bom primer hidratante — ou até um sérum antes dele — evita que a maquiagem "entre" nas linhas finas e acentue sinais de ressecamento ao longo do dia. Se você ainda não tem uma rotina noturna de skincare consistente, [vale começar por aí](/blog/skincare-rotina-noturna): pele bem cuidada à noite facilita (e muito) a maquiagem no dia seguinte.
 
 ## 2. Prefira bases com acabamento luminoso
 

@@ -17,3 +17,5 @@ Prefira texturas em gel ou fluido, com acabamento matte e toque seco.
 ## Pele seca
 
 Fórmulas mais cremosas, com ativos hidratantes, são a melhor escolha para esse tipo de pele.
+
+Protetor solar é o passo da manhã — se você ainda não tem uma, vale completar com uma [rotina noturna de skincare](/blog/skincare-rotina-noturna) pra cuidar da pele também enquanto você dorme.

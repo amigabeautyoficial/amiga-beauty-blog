@@ -17,3 +17,5 @@ A mistura de cores suaves com tons vibrantes é uma das apostas mais fortes da e
 ## Tecidos fluidos
 
 Linho e viscose ganham espaço nos looks do dia a dia, trazendo conforto sem abrir mão do estilo.
+
+Quer renovar o guarda-roupa sem gastar muito? Confira os [achadinhos da semana](/blog/achadinhos-skincare-shopee) que garimpamos com ótimo custo-benefício.
