@@ -3,6 +3,8 @@ import { Poppins, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 const poppins = Poppins({
@@ -55,6 +57,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CookieConsent />
+        <GoogleAnalytics />
       </body>
     </html>
   );
