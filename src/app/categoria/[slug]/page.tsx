@@ -1,11 +1,36 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import PostCard from "@/components/PostCard";
 import { getPostsByCategory } from "@/lib/posts";
 import { categories, getCategory, getChildCategories } from "@/lib/categories";
 import { notFound } from "next/navigation";
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return categories.map((c) => ({ slug: c.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const category = getCategory(slug);
+  const posts = getPostsByCategory(slug);
+  if (posts.length === 0) return {};
+
+  const title = `${category.name}`;
+  const description = `Artigos sobre ${category.name.toLowerCase()} no Amiga Beauty: dicas, inspiração e conversas de amiga para amiga.`;
+  const url = `${SITE_URL}/categoria/${category.slug}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { type: "website", url, title, description },
+    twitter: { card: "summary", title, description },
+  };
 }
 
 export default async function CategoryPage({
