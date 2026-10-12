@@ -2,8 +2,11 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import CategoryPill from "@/components/CategoryPill";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import RelatedPosts from "@/components/RelatedPosts";
 import { notFound } from "next/navigation";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { getCategoryChain } from "@/lib/categories";
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -53,8 +56,40 @@ export default async function PostPage({
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
+  const categoryChain = getCategoryChain(post.category);
+  const breadcrumbItems = [
+    { label: "Início", href: "/" },
+    ...categoryChain.map((cat) => ({
+      label: cat.name,
+      href: `/categoria/${cat.slug}`,
+    })),
+    { label: post.title },
+  ];
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.seoDescription ?? post.excerpt,
+    image: [post.coverImage],
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { "@type": "Organization", name: post.author },
+    publisher: { "@type": "Organization", name: SITE_NAME },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}`,
+    },
+  };
+
   return (
     <article className="max-w-3xl mx-auto px-4 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <Breadcrumbs items={breadcrumbItems} />
+
       <CategoryPill slug={post.category} />
       <h1 className="mt-4 text-3xl md:text-4xl font-extrabold leading-tight">
         {post.title}
@@ -83,6 +118,8 @@ export default async function PostPage({
         className="prose prose-lg max-w-none mt-10 prose-headings:font-extrabold prose-a:text-[var(--primary)]"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
+
+      <RelatedPosts currentPost={post} />
     </article>
   );
 }
