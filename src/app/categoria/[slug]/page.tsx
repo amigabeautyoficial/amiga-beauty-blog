@@ -1,8 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import PostCard from "@/components/PostCard";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { getPostsByCategory } from "@/lib/posts";
-import { categories, getCategory, getChildCategories } from "@/lib/categories";
+import {
+  categories,
+  getCategory,
+  getChildCategories,
+  getCategoryChain,
+} from "@/lib/categories";
 import { notFound } from "next/navigation";
 import { SITE_URL } from "@/lib/site";
 
@@ -45,9 +51,23 @@ export default async function CategoryPage({
 
   if (posts.length === 0) notFound();
 
+  const categoryChain = getCategoryChain(slug);
+  const breadcrumbItems = [
+    { label: "Início", href: "/" },
+    ...categoryChain.slice(0, -1).map((cat) => ({
+      label: cat.name,
+      href: `/categoria/${cat.slug}`,
+    })),
+    { label: category.name },
+  ];
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-extrabold" style={{ color: category.color }}>
+      <Breadcrumbs items={breadcrumbItems} />
+      <h1
+        className="text-3xl font-extrabold mt-3"
+        style={{ color: category.color }}
+      >
         {category.name}
       </h1>
 
