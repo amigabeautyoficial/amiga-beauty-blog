@@ -65,3 +65,7 @@ A gente é treinada pra se valorizar pela produtividade. Mas o seu valor não es
 Cuidar de quem você ama é lindo. Mas isso só é sustentável quando você também está na sua própria lista de cuidado. Não é sobre parar de cuidar dos outros — é sobre **lembrar que você também merece esse carinho**.
 
 Então, amiga: hoje, que tal fazer alguma coisa só porque você quer? Sem culpa, sem explicação. Você merece.
+
+---
+
+**Mande para o seu marido:** cuidar da própria autoestima também é mais fácil quando se tem apoio em casa. Se ele quiser entender melhor como apoiar você nessa jornada, os artigos [Como ser um bom marido: 12 atitudes que fazem diferença](https://planetahomem.com.br/como-ser-um-bom-marido/) e [O papel do homem no casamento](https://planetahomem.com.br/o-papel-do-homem-no-casamento/), do nosso parceiro Planeta Homem, são um ótimo começo.
