@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Sobre Nós | Amiga Beauty",
+  title: "Sobre Nós",
   description:
     "Conheça o Amiga Beauty: uma revista para a mulher como um todo — beleza, comportamento, relacionamentos, carreira, fé e muito mais.",
+  alternates: { canonical: `${SITE_URL}/sobre` },
 };
 
 export default function SobrePage() {

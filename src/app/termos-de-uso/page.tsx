@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Termos de Uso | Amiga Beauty",
+  title: "Termos de Uso",
   description: "Regras e condições para uso do site Amiga Beauty.",
+  alternates: { canonical: `${SITE_URL}/termos-de-uso` },
 };
 
 export default function TermosDeUsoPage() {

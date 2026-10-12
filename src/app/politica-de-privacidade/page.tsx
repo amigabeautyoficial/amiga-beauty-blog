@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade | Amiga Beauty",
+  title: "Política de Privacidade",
   description: "Como o Amiga Beauty coleta, usa e protege seus dados.",
+  alternates: { canonical: `${SITE_URL}/politica-de-privacidade` },
 };
 
 export default function PoliticaDePrivacidadePage() {
