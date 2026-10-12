@@ -60,3 +60,14 @@ export function getTopLevelCategories(): Category[] {
 export function getChildCategories(parentSlug: string): Category[] {
   return categories.filter((c) => c.parent === parentSlug);
 }
+
+/**
+ * Cadeia de categorias da raiz até `slug`, pra montar breadcrumbs.
+ * Ex: getCategoryChain("maquiagem") → [Beleza, Maquiagem].
+ * Para uma categoria de topo, retorna só ela mesma.
+ */
+export function getCategoryChain(slug: string): Category[] {
+  const category = getCategory(slug);
+  if (!category.parent) return [category];
+  return [...getCategoryChain(category.parent), category];
+}
