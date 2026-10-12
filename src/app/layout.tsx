@@ -42,6 +42,9 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} | Beleza, Comportamento e Estilo de Vida`,
     description: DEFAULT_DESCRIPTION,
   },
+  verification: {
+    google: "djcih1RcruDcS7t0L3BV9NNT25ia0fQHLkmnzJyZSUY",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
