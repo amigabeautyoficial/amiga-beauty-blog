@@ -1,10 +1,47 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import CategoryPill from "@/components/CategoryPill";
 import { notFound } from "next/navigation";
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+  if (!post) return {};
+
+  const title = post.seoTitle ?? post.title;
+  const description = post.seoDescription ?? post.excerpt;
+  const url = `${SITE_URL}/blog/${post.slug}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      url,
+      title,
+      description,
+      publishedTime: post.date,
+      authors: [post.author],
+      images: [{ url: post.coverImage }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [post.coverImage],
+    },
+  };
 }
 
 export default async function PostPage({
