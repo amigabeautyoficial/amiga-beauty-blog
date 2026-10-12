@@ -3,7 +3,11 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
-import { getChildCategories } from "./categories";
+import {
+  getChildCategories,
+  getTopLevelCategories,
+  type Category,
+} from "./categories";
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
@@ -16,6 +20,10 @@ export type PostMeta = {
   date: string;
   coverImage: string;
   featured?: boolean;
+  /** Título otimizado para <title>/SEO, quando diferente do título exibido como H1. */
+  seoTitle?: string;
+  /** Meta description otimizada, quando diferente do excerto exibido no site. */
+  seoDescription?: string;
 };
 
 export type Post = PostMeta & {
@@ -52,12 +60,49 @@ export function getPostsByCategory(categorySlug: string): PostMeta[] {
   return getAllPosts().filter((p) => slugs.includes(p.category));
 }
 
+/**
+ * Categorias de primeiro nível que têm ao menos um post (direto ou em
+ * alguma subcategoria). Use para montar menus sem links que dão 404.
+ */
+export function getTopLevelCategoriesWithPosts(): Category[] {
+  return getTopLevelCategories().filter(
+    (cat) => getPostsByCategory(cat.slug).length > 0
+  );
+}
+
+/**
+ * Subcategorias de `parentSlug` que têm ao menos um post próprio.
+ */
+export function getChildCategoriesWithPosts(parentSlug: string): Category[] {
+  return getChildCategories(parentSlug).filter(
+    (child) => getPostsByCategory(child.slug).length > 0
+  );
+}
+
+// Domínios de loja/afiliados: links pra eles no corpo do artigo recebem
+// rel="sponsored nofollow" automaticamente, sem afetar outros links externos
+// (como parcerias editoriais, que devem continuar dofollow).
+const AFFILIATE_HOSTS = ["ofertas.amigabeauty.com.br"];
+
+function addAffiliateLinkAttributes(contentHtml: string): string {
+  return AFFILIATE_HOSTS.reduce((html, host) => {
+    const pattern = new RegExp(
+      `<a href="(https?:\\/\\/${host.replace(/\./g, "\\.")}[^"]*)"`,
+      "g"
+    );
+    return html.replace(
+      pattern,
+      '<a href="$1" target="_blank" rel="sponsored nofollow noreferrer"'
+    );
+  }, contentHtml);
+}
+
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   if (!fs.existsSync(fullPath)) return null;
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
   const processed = await remark().use(html).process(content);
-  const contentHtml = processed.toString();
+  const contentHtml = addAffiliateLinkAttributes(processed.toString());
   return { slug, contentHtml, ...(data as Omit<PostMeta, "slug">) };
 }
