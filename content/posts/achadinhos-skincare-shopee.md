@@ -15,3 +15,5 @@ Garimpamos os melhores achadinhos de skincare com ótimo custo-benefício. Confi
 Testamos e selecionamos apenas produtos com boa avaliação e preço justo, direto para você economizar tempo na busca.
 
 Veja a seleção completa na nossa [loja de ofertas](https://ofertas.amigabeauty.com.br).
+
+*Este post contém links de afiliados. Podemos ganhar uma comissão em compras feitas através deles, sem custo extra para você.*
