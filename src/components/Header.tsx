@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getTopLevelCategories, getChildCategories } from "@/lib/categories";
+import {
+  getTopLevelCategoriesWithPosts,
+  getChildCategoriesWithPosts,
+} from "@/lib/posts";
 
 export default function Header() {
-  const topLevel = getTopLevelCategories();
+  const topLevel = getTopLevelCategoriesWithPosts();
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-border-soft">
@@ -22,7 +25,7 @@ export default function Header() {
 
           <nav className="hidden lg:flex items-center gap-5">
             {topLevel.map((cat) => {
-              const children = getChildCategories(cat.slug);
+              const children = getChildCategoriesWithPosts(cat.slug);
               return (
                 <div key={cat.slug} className="relative group">
                   <Link
@@ -52,7 +55,7 @@ export default function Header() {
             <a
               href="https://ofertas.amigabeauty.com.br"
               target="_blank"
-              rel="noreferrer"
+              rel="sponsored nofollow noreferrer"
               className="text-sm font-bold text-white px-4 py-2 rounded-full whitespace-nowrap"
               style={{ backgroundColor: "var(--primary)" }}
             >

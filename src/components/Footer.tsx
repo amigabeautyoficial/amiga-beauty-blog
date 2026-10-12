@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getTopLevelCategories } from "@/lib/categories";
+import { getTopLevelCategoriesWithPosts } from "@/lib/posts";
 
 export default function Footer() {
   return (
@@ -25,7 +25,7 @@ export default function Footer() {
             Categorias
           </h4>
           <ul className="space-y-2">
-            {getTopLevelCategories().map((cat) => (
+            {getTopLevelCategoriesWithPosts().map((cat) => (
               <li key={cat.slug}>
                 <Link
                   href={`/categoria/${cat.slug}`}
@@ -55,12 +55,16 @@ export default function Footer() {
           <a
             href="https://ofertas.amigabeauty.com.br"
             target="_blank"
-            rel="noreferrer"
+            rel="sponsored nofollow noreferrer"
             className="inline-block mt-4 text-sm font-bold text-white px-4 py-2 rounded-full"
             style={{ backgroundColor: "var(--primary)" }}
           >
             Ver Achadinhos
           </a>
+          <p className="mt-2 text-[11px] text-foreground/50 max-w-xs">
+            Link de afiliado: podemos ganhar uma comissão em compras feitas
+            por aqui, sem custo extra pra você.
+          </p>
         </div>
       </div>
       <div className="border-t border-border-soft py-5 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-xs text-foreground/50">
@@ -68,6 +72,10 @@ export default function Footer() {
           © {new Date().getFullYear()} Amiga Beauty. Todos os direitos
           reservados.
         </span>
+        <span className="hidden sm:inline">·</span>
+        <Link href="/blog" className="hover:text-primary">
+          Blog
+        </Link>
         <span className="hidden sm:inline">·</span>
         <Link href="/sobre" className="hover:text-primary">
           Sobre Nós
