@@ -53,9 +53,7 @@ export default function Footer() {
             ))}
           </div>
           <a
-            href="https://ofertas.amigabeauty.com.br"
-            target="_blank"
-            rel="sponsored nofollow noreferrer"
+            href="/loja"
             className="inline-block mt-4 text-sm font-bold text-white px-4 py-2 rounded-full"
             style={{ backgroundColor: "var(--primary)" }}
           >
