@@ -6,7 +6,7 @@ seoDescription: "Entenda por que é tão difícil se priorizar, os sinais de esg
 category: "comportamento"
 author: "Amiga Beauty"
 date: "2026-10-12"
-coverImage: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80"
+coverImage: "/images/capa-autoestima-manha-em-familia.jpg"
 featured: true
 ---
 
