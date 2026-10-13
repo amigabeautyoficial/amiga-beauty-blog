@@ -4,6 +4,7 @@ import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import CategoryPill from "@/components/CategoryPill";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import ShareButtons from "@/components/ShareButtons";
 import { notFound } from "next/navigation";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 import { getCategoryChain } from "@/lib/categories";
@@ -56,6 +57,7 @@ export default async function PostPage({
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
+  const postUrl = `${SITE_URL}/blog/${post.slug}`;
   const categoryChain = getCategoryChain(post.category);
   const breadcrumbItems = [
     { label: "Início", href: "/" },
@@ -103,6 +105,10 @@ export default async function PostPage({
         })}
       </p>
 
+      <div className="mt-4">
+        <ShareButtons url={postUrl} title={post.title} />
+      </div>
+
       <div className="relative w-full aspect-[16/9] mt-8 overflow-hidden rounded-3xl bg-nude">
         <Image
           src={post.coverImage}
@@ -118,6 +124,10 @@ export default async function PostPage({
         className="prose prose-lg max-w-none mt-10 prose-headings:font-extrabold prose-a:text-[var(--primary)]"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
+
+      <div className="mt-12 pt-8 border-t border-border-soft">
+        <ShareButtons url={postUrl} title={post.title} />
+      </div>
 
       <RelatedPosts currentPost={post} />
     </article>
