@@ -6,6 +6,7 @@ import html from "remark-html";
 import {
   getChildCategories,
   getTopLevelCategories,
+  getCategory,
   type Category,
 } from "./categories";
 
@@ -77,6 +78,49 @@ export function getChildCategoriesWithPosts(parentSlug: string): Category[] {
   return getChildCategories(parentSlug).filter(
     (child) => getPostsByCategory(child.slug).length > 0
   );
+}
+
+/**
+ * Posts "afins" de um artigo, pra blocos de "Leia também". Alarga a busca
+ * em camadas até juntar `limit` posts:
+ * 1. Mesma subcategoria (excluindo o próprio post);
+ * 2. Outras subcategorias da mesma categoria-pai (irmãs);
+ * 3. Posts mais recentes de qualquer categoria, como último recurso.
+ * Nunca repete um post já incluído numa camada anterior.
+ */
+export function getRelatedPosts(
+  currentPost: PostMeta,
+  limit = 3
+): PostMeta[] {
+  const seen = new Set([currentPost.slug]);
+  const related: PostMeta[] = [];
+
+  function addFrom(candidates: PostMeta[]) {
+    for (const post of candidates) {
+      if (related.length >= limit) break;
+      if (seen.has(post.slug)) continue;
+      seen.add(post.slug);
+      related.push(post);
+    }
+  }
+
+  // 1. Mesma subcategoria.
+  addFrom(getPostsByCategory(currentPost.category));
+
+  // 2. Categorias irmãs (mesmo pai).
+  if (related.length < limit) {
+    const parentSlug = getCategory(currentPost.category).parent;
+    if (parentSlug) {
+      addFrom(getPostsByCategory(parentSlug));
+    }
+  }
+
+  // 3. Mais recentes de qualquer categoria, como último recurso.
+  if (related.length < limit) {
+    addFrom(getAllPosts());
+  }
+
+  return related;
 }
 
 // Domínios de loja/afiliados: links pra eles no corpo do artigo recebem

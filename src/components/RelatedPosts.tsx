@@ -1,14 +1,12 @@
 import PostCard from "./PostCard";
-import { getPostsByCategory, type PostMeta } from "@/lib/posts";
+import { getRelatedPosts, type PostMeta } from "@/lib/posts";
 
 export default function RelatedPosts({
   currentPost,
 }: {
   currentPost: PostMeta;
 }) {
-  const related = getPostsByCategory(currentPost.category)
-    .filter((p) => p.slug !== currentPost.slug)
-    .slice(0, 3);
+  const related = getRelatedPosts(currentPost, 3);
 
   if (related.length === 0) return null;
 
