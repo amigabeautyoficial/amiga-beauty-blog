@@ -1,6 +1,6 @@
 ---
 title: "Você cuida de todo mundo, mas quem cuida de você?"
-excerpt: "01 · Autoestima — um papo sincero sobre o hábito de se colocar em último lugar e como começar a mudar isso, aos poucos."
+excerpt: "Um papo sincero sobre o hábito de se colocar em último lugar e como começar a mudar isso, aos poucos."
 seoTitle: "Autoestima feminina: quem cuida de quem cuida de todo mundo?"
 seoDescription: "Entenda por que é tão difícil se priorizar, os sinais de esgotamento emocional e passos práticos para cuidar da própria autoestima."
 category: "comportamento"
@@ -9,8 +9,6 @@ date: "2026-10-12"
 coverImage: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80"
 featured: true
 ---
-
-*01 · Autoestima*
 
 Amiga, posso te fazer uma pergunta direta? Quando foi a última vez que você fez alguma coisa só porque **você** queria — sem ser pra agradar alguém, resolver o problema de alguém ou dar conta de mais uma tarefa da lista?
 
