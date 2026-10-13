@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import FeaturedHero from "@/components/FeaturedHero";
-import SocialBar from "@/components/SocialBar";
 import CategorySection from "@/components/CategorySection";
 import { getAllPosts, getPostsByCategory } from "@/lib/posts";
 import { getTopLevelCategories } from "@/lib/categories";
@@ -39,7 +38,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <FeaturedHero posts={featured} />
-      <SocialBar />
       {getTopLevelCategories().map((cat) => (
         <CategorySection
           key={cat.slug}
