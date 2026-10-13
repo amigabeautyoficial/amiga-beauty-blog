@@ -13,8 +13,8 @@ export default function CookieConsent() {
 
   if (!visible) return null;
 
-  function handle(status: "accepted" | "declined") {
-    setStoredConsent(status);
+  function handleDismiss() {
+    setStoredConsent("accepted");
     setVisible(false);
   }
 
@@ -23,8 +23,7 @@ export default function CookieConsent() {
       <div className="max-w-3xl mx-auto bg-white border border-border-soft rounded-2xl shadow-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4">
         <p className="text-sm text-foreground/80 flex-1">
           A gente usa cookies pra entender como você navega no site e
-          melhorar sua experiência. Você pode aceitar ou recusar — isso não
-          muda o acesso ao conteúdo. Veja nossa{" "}
+          melhorar sua experiência. Veja nossa{" "}
           <Link
             href="/politica-de-privacidade"
             className="underline hover:text-primary"
@@ -35,17 +34,11 @@ export default function CookieConsent() {
         </p>
         <div className="flex gap-2 shrink-0">
           <button
-            onClick={() => handle("declined")}
-            className="text-sm font-semibold px-4 py-2 rounded-full border border-border-soft text-foreground/70 hover:bg-nude-soft"
-          >
-            Recusar
-          </button>
-          <button
-            onClick={() => handle("accepted")}
+            onClick={handleDismiss}
             className="text-sm font-bold px-4 py-2 rounded-full text-white"
             style={{ backgroundColor: "var(--primary)" }}
           >
-            Aceitar
+            Entendi
           </button>
         </div>
       </div>

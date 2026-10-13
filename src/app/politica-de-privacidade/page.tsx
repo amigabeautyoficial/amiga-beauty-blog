@@ -14,7 +14,7 @@ export default function PoliticaDePrivacidadePage() {
         Política de Privacidade
       </h1>
       <p className="mt-3 text-sm text-foreground/60">
-        Última atualização: 07 de outubro de 2026
+        Última atualização: 12 de outubro de 2026
       </p>
 
       <div className="prose prose-lg max-w-none mt-10 prose-headings:font-extrabold prose-a:text-[var(--primary)]">

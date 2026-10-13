@@ -1,23 +1,24 @@
-export const CONSENT_KEY = "amiga-beauty-cookie-consent";
-export const CONSENT_EVENT = "amiga-beauty-consent-changed";
+// O banner de cookies é apenas informativo: Analytics carrega sempre
+// (quando NEXT_PUBLIC_GA_ID está configurado), independente do que a
+// pessoa clicar aqui. Isso só controla se o aviso já foi visto, pra não
+// reaparecer a cada visita.
+export const CONSENT_KEY = "amiga-beauty-cookie-notice-dismissed";
 
-export type ConsentStatus = "accepted" | "declined";
-
-export function getStoredConsent(): ConsentStatus | null {
+export function getStoredConsent(): "accepted" | null {
   if (typeof window === "undefined") return null;
   try {
-    const value = window.localStorage.getItem(CONSENT_KEY);
-    return value === "accepted" || value === "declined" ? value : null;
+    return window.localStorage.getItem(CONSENT_KEY) === "accepted"
+      ? "accepted"
+      : null;
   } catch {
     return null;
   }
 }
 
-export function setStoredConsent(status: ConsentStatus) {
+export function setStoredConsent(status: "accepted") {
   try {
     window.localStorage.setItem(CONSENT_KEY, status);
   } catch {
     // localStorage indisponível (modo privado, etc.) — segue sem persistir.
   }
-  window.dispatchEvent(new Event(CONSENT_EVENT));
 }
