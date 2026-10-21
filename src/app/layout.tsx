@@ -56,6 +56,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${poppins.variable} ${manrope.variable} h-full antialiased`}
     >
+      <head>
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4915912781607667"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className="min-h-full flex flex-col"
         style={{ fontFamily: "var(--font-manrope), sans-serif" }}
